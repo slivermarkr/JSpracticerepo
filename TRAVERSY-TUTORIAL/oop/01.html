@@ -86,22 +86,43 @@
             
             // *****Object create
             
-            const bookProtos = {
-                getSummary: function() {
-                return `The ${this.title} is written by ${this.author} back in ${this.year}`;},
+            // const bookProtos = {
+            //     getSummary: function() {
+            //     return `The ${this.title} is written by ${this.author} back in ${this.year}`;},
 
-                getAge: function () {
-                const year = new Date().getFullYear() - this.year;
-            return `${this.title} is ${year} years old`;}
+            //     getAge: function () {
+            //     const year = new Date().getFullYear() - this.year;
+            // return `${this.title} is ${year} years old`;}
+            //     }
+
+            // // ***create object
+            // const book1 = Object.create(bookProtos);
+            // book1.title = "Book One";
+            // book1.author = "Bilbo";
+            // book1.year= "1888";
+            // console.log(book1.getAge());
+            // console.log(book1.getSummary());
+
+            //****CLASSES
+            class Book {
+                constructor(title, author, year) {
+                    this.title = title;
+                    this.author = author;
+                    this.year = year
                 }
 
-            // ***create object
-            const book1 = Object.create(bookProtos);
-            book1.title = "Book One";
-            book1.author = "Bilbo";
-            book1.year= "1888";
-            console.log(book1.getAge());
+                getSummary(){
+                    return `The ${this.title} is written by ${this.author} back in ${this.year}`;
+                } 
+                getAge(){
+                    const year = new Date().getFullYear() - this.year;
+                    return `${this.title} is ${year} years old`;
+                }
+            }
+            const book1 = new Book("Book One", "Bilbo", 1998);
+            console.log(book1);
             console.log(book1.getSummary());
+            console.log(book1.getAge());
             </script>
 </body>
 </html>
