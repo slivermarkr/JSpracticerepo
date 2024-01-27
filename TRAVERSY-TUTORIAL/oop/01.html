@@ -114,15 +114,18 @@
                 getSummary(){
                     return `The ${this.title} is written by ${this.author} back in ${this.year}`;
                 } 
-                getAge(){
-                    const year = new Date().getFullYear() - this.year;
-                    return `${this.title} is ${year} years old`;
+            }
+           
+            class Magazine extends Book {
+                constructor(title,author,year, month){
+                    super(title,author,year);
+                    this.month = month;
                 }
             }
-            const book1 = new Book("Book One", "Bilbo", 1998);
-            console.log(book1);
-            console.log(book1.getSummary());
-            console.log(book1.getAge());
+
+            const mag1 = new Magazine("Vauge", "Butters", 2021, "Feb");
+            console.log(mag1);
+            console.log(mag1.getSummary());
             </script>
 </body>
 </html>
