@@ -7,17 +7,61 @@
 </head>
 <body>
     <script>
-        const book1 = {
-            title: 'Book One',
-            author: 'Bilbo',
-            year: '2010',
+        // ***object literal
 
-            getSummary: function() {
-                return `The ${this.title} is written by ${this.author} back in ${this.year}`;
-            }
+        // const book1 = {
+        //     title: 'Book One',
+        //     author: 'Bilbo',
+        //     year: '2010',
+
+        //     getSummary: function() {
+        //         return `The ${this.title} is written by ${this.author} back in ${this.year}`;
+        //     }
+        // }
+        // const book2 = {
+        //     title: 'Book Two',
+        //     author: 'Milmo',
+        //     year: '2000',
+
+        //     getSummary: function() {
+        //         return `The ${this.title} is written by ${this.author} back in ${this.year}`;
+        //     }
+        // }
+
+        // console.log(book1.getSummary());
+        // console.log(Object.keys(book1));
+        // console.log(Object.values(book1));
+
+        // ****constructor
+        function Book(title,author,year) {
+            this.title = title;
+            this.author = author;
+            this.year = year;
         }
 
-        console.log(book1.getSummary());
+        Book.prototype.getSummary = function() {
+            return `The ${this.title} is written by ${this.author} back in ${this.year}`;}
+
+        Book.prototype.getAge = function () {
+            const year = new Date().getFullYear() - this.year;
+            return `${this.title} is ${year} years old`;
+        }
+
+        Book.prototype.revise = function(newYear) {
+          this.year = newYear;
+          this.revised = true;
+        }
+        const book1 = new Book("Book1","Bilbo",2000);
+        const book2 = new Book("Book2", "Milmo",1998);
+
+        
+        console.log(book2);
+        book2.revise(2013);
+        console.log(book2);
+        console.log(book2.year);
+        
+
+
     </script>
 </body>
 </html>
